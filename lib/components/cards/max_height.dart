@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../video.dart';
+
 class MaxHeight extends StatefulWidget {
   const MaxHeight({Key? key, required this.data}) : super(key: key);
   final Map<int, List<String>> data;
@@ -26,17 +28,12 @@ class _MaxHeight extends State<MaxHeight> {
       margin: EdgeInsets.all(5),
       width: MediaQuery.of(context).size.height / 6.5,
       height: MediaQuery.of(context).size.width / 2.25,
-      child: GestureDetector(
-        child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(7)),
-          child: Image.network(
-            image,
-            fit: BoxFit.fill,
-          ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(7)),
+        child: VideoPlay(
+          image: image,
+          video: video,
         ),
-        onTap: () {
-          setState(() {});
-        },
       ),
     );
   }

@@ -1,4 +1,4 @@
-package com.example.disney_plus_hotastar
+package com.example.disney_plus_hotstar
 
 import io.flutter.embedding.android.FlutterActivity
 

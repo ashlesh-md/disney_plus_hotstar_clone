@@ -87,33 +87,36 @@ class _Home extends State<Home> {
         data: ThemeData(
           canvasColor: const Color.fromARGB(255, 11, 11, 11),
         ),
-        child: BottomNavigationBar(
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey,
-          currentIndex: _selectedIndex,
-          items: [
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.home), label: 'Home'),
-            const BottomNavigationBarItem(icon: Icon(Icons.tv), label: 'TV'),
-            BottomNavigationBarItem(
-                icon: Image.network(
-                  "https://upload.wikimedia.org/wikipedia/commons/thumb/archive/3/3e/20220128173228%21Disney%2B_logo.svg/120px-Disney%2B_logo.svg.png",
-                  cacheHeight: _selectedIndex == 2 ? 30 : 25,
-                  color: _selectedIndex == 2 ? null : Colors.grey,
-                ),
-                label: ''),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.movie), label: 'Movies'),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.sports_cricket), label: 'Sports'),
-          ],
-          onTap: (int value) {
-            setState(() {
-              _selectedIndex = value;
-              print(_selectedIndex);
-            });
-          },
-        ),
+        child: !myDrawer.isChecked
+            ? BottomNavigationBar(
+                selectedItemColor: Colors.white,
+                unselectedItemColor: Colors.grey,
+                currentIndex: _selectedIndex,
+                items: [
+                  const BottomNavigationBarItem(
+                      icon: Icon(Icons.home), label: 'Home'),
+                  const BottomNavigationBarItem(
+                      icon: Icon(Icons.tv), label: 'TV'),
+                  BottomNavigationBarItem(
+                      icon: Image.network(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/archive/3/3e/20220128173228%21Disney%2B_logo.svg/120px-Disney%2B_logo.svg.png",
+                        cacheHeight: _selectedIndex == 2 ? 30 : 25,
+                        color: _selectedIndex == 2 ? null : Colors.grey,
+                      ),
+                      label: ''),
+                  const BottomNavigationBarItem(
+                      icon: Icon(Icons.movie), label: 'Movies'),
+                  const BottomNavigationBarItem(
+                      icon: Icon(Icons.sports_cricket), label: 'Sports'),
+                ],
+                onTap: (int value) {
+                  setState(() {
+                    _selectedIndex = value;
+                    print(_selectedIndex);
+                  });
+                },
+              )
+            : SizedBox(),
       ),
     );
   }

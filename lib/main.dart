@@ -1,12 +1,7 @@
 import 'package:disney_plus_hotastar/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'Screens/home/home.dart';
-import 'Screens/home/hotstarKids.dart';
-import 'Screens/home/hotstarMain.dart';
-import 'components/drawer.dart';
 
 void main() {
   runApp(const MyApp());

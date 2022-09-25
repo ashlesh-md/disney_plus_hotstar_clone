@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../video.dart';
+
 class Carousels extends StatefulWidget {
   const Carousels({Key? key, required this.data}) : super(key: key);
   final Map<int, List<String>> data;
@@ -45,19 +47,12 @@ class _CarouselsState extends State<Carousels> {
       margin: EdgeInsets.all(5),
       height: MediaQuery.of(context).size.height / 4,
       width: MediaQuery.of(context).size.width - 10,
-      child: GestureDetector(
-        child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(7)),
-          child: Image.network(
-            image,
-            fit: BoxFit.fill,
-          ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(7)),
+        child: VideoPlay(
+          image: image,
+          video: video,
         ),
-        onTap: () {
-          setState(() {
-            _controller.play();
-          });
-        },
       ),
     );
   }
